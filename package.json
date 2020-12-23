@@ -1,0 +1,31 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-aqua": "^7.2.3",
+    "jest": "^26.1.0"
+  },
+  "scripts": {
+    "serve": "$(npm bin)/nodemon src/main.js",
+    "start": "echo \"Pas de web, heroku de malheur\"",
+    "lint": "$(npm bin)/eslint src/**/*",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "aqua"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "12.16",
+    "npm": "6.14"
+  }
+}

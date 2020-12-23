@@ -1,0 +1,42 @@
+# ---------- Builder ----------
+FROM node:12-alpine as builder
+
+RUN apk add --no-cache python make g++
+
+RUN mkdir -p /opt/bot
+WORKDIR /opt/bot
+
+# Copy and Install our bot
+COPY package*.json /opt/bot/
+RUN npm install --prod
+COPY . /opt/bot
+
+# ---------- App ----------
+FROM node:12-alpine as app
+
+ARG creation_date
+ARG image_revision
+ARG image_version
+
+LABEL "org.opencontainers.image.created"="$creation_date"
+LABEL "org.opencontainers.image.authors"="fccj"
+LABEL "org.opencontainers.image.url"="https://github.com/FlorianCcj/bot-discord-igo-dictionary"
+LABEL "org.opencontainers.image.documentation"="https://github.com/FlorianCcj/bot-discord-igo-dictionary"
+LABEL "org.opencontainers.image.source"="https://github.com/FlorianCcj/bot-discord-igo-dictionary"
+LABEL "org.opencontainers.image.version"="$image_version"
+LABEL "org.opencontainers.image.revision"="$image_revision"
+LABEL "org.opencontainers.image.title"="Discord - Bot - Igo - dictionary"
+LABEL "org.opencontainers.image.description"="igo_dictionnary is the first discord bot related with the anciant strategical chinese game popularized by japan : the so called game of go. Its main aim is to help beginners in their go journey by clarifying the fearsome go jargon. Through elegant and efficient commands, the user is able to acces to a large number of go related thermes with flawless definitions and explicit illustrations alongside. In this manner, concepts such as 'ishi no shita' or 'sabaki' will have no secrets for the neophyte. Ultimately our igo_dictionnary bot will act like a giant online vivid and interactiv encyclopedia, providing the go discord community a top-notch educational tool."
+
+ENV DISCORD_TOKEN="my super token"
+ENV BOT_PREFIX="!igo"
+ENV NODE_ENV=production
+
+RUN mkdir -p /opt/bot
+WORKDIR /opt/bot
+
+COPY --from=builder /opt/bot .
+
+USER node
+
+CMD ["npm", "run", "serve"]

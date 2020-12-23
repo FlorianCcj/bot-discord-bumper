@@ -1,0 +1,17 @@
+FROM node:12-alpine
+
+# Create the directory!
+RUN mkdir -p /opt/bot
+WORKDIR /opt/bot
+
+COPY package*.json /opt/bot
+RUN npm install --prod
+
+ENV DISCORD_TOKEN="my super token"
+ENV BOT_PREFIX="!igo"
+ENV NODE_ENV=production
+
+COPY . /opt/bot
+USER node
+# Start me!
+CMD ["npm", "run", "serve"]

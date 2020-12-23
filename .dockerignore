@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+.dockerignore
+docker
+.eslintrc.json
+.gitignore
+docker-compose.yaml
+Procfile
+README.md
+secret.js
+secret.js.example
+assets/
