@@ -1,7 +1,6 @@
 const help = require('../commands/help.command');
 const info = require('../commands/info.command');
 const init = require('../commands/init.command');
-const utils = require('../utils/utils');
 
 module.exports = async (client, msg) => {
   let print_help = true;
@@ -20,7 +19,7 @@ module.exports = async (client, msg) => {
   } else if (
     msg.content.startsWith(`${config.PREFIX} init`)
   ) {
-    init.init(msg, config);
+    init.init(msg, config, client);
     print_help = false;
   }
 

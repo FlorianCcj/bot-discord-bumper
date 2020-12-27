@@ -1,4 +1,4 @@
-# Bot - Igo- Dictionnary
+# Bot - Discord bumper
 
 ## Dependancies
 
@@ -10,16 +10,7 @@ cf package.json > engines
 
 ## Config
 
-good luck with all variable in config.js
-
 ### Secret variable
-
-rename `secret.js.example` in `secret.js`
-
-| Var name                      | Desc                                                                                        |
-|-------------------------------|---------------------------------------------------------------------------------------------|
-| TOKEN                         | Auth token, you get it on [discordapp](discordapp.com/developers/applications/)             |
-| BOT_PREFIX                        | the first char you write to easy command                                                    |
 
 ### For heroku
 
@@ -29,7 +20,7 @@ all in secret.js must be in variable
 
 ## Lauch dev
 
-in `config.js` be sur of `exports.ENV = 'dev';`
+in `config.js` be sure of `exports.ENV = 'dev';`
 
 then `npm run serve`
 
@@ -47,16 +38,6 @@ then `npm run serve`
 * Deploy > Manual deploy > Deploy Branch
 * Resources > activate `web` and `worker`
 * if you want to see log: more > views logs
-
-## To top.gg
-
-### Desc
-
-igo_dictionnary is the first discord bot related with the anciant strategical chinese game popularized by japan : the so called game of go.
-Its main aim is to help beginners in their go journey by clarifying the fearsome go jargon.
-Through elegant and efficient commands, the user is able to acces to a large number of go related thermes with flawless definitions and explicit illustrations alongside.
-In this manner, concepts such as 'ishi no shita' or 'sabaki' will have no secrets for the neophyte.
-Ultimately our igo_dictionnary bot will act like a giant online vivid and interactiv encyclopedia, providing the go discord community a top-notch educational tool.
 
 ## Docker
 
@@ -81,5 +62,3 @@ Ultimately our igo_dictionnary bot will act like a giant online vivid and intera
 * https://www.jeudego.org/_php/affiche_dico_grand_tableau.php
 * https://senseis.xmp.net/?search=A 
 * https://francois-mizessyn.pagesperso-orange.fr/JeuDeGo/index/jargon.htm
-
-

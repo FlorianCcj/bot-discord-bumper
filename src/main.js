@@ -1,6 +1,7 @@
 const { Client } = require('discord.js');
 const CONFIG = require("../config");
 const fs = require('fs');
+const utils = require('./utils/utils');
 const client = new Client({
   disableEveryone: true
 });
@@ -32,6 +33,6 @@ fs.readdir('./src/events', (err, files) => {
 
 client.on('error', console.error);
 client.on('warn', console.warn);
-// client.on('debug', console.log);
+//client.on('debug', console.log);
 
 client.login(client.config.TOKEN);
